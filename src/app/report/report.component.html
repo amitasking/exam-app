@@ -1,0 +1,42 @@
+<app-header></app-header>
+
+<div class="container">
+<h4  class="center ">
+	<h4 class="pink-text"> {{testName | titlecase}} </h4>
+</h4>
+	<table class="striped centered  responsive-table">
+		
+		  <thead>
+	          <tr>
+	            <!--   <th>No</th> -->
+	              <th>Name</th>
+	              <th>Email</th>
+	              <th>Correct</th>
+	              <th>Incorrect</th>
+	              <th>Not Answered</th>
+	              <th>Status</th>
+	              <th>Submission Time</th>
+	              
+	          </tr>
+	        </thead>
+
+			<tbody >
+				<tr *ngFor = "let c of candidates | paginate: { itemsPerPage: 10, currentPage: p };let i = index">
+					<!-- <td>{{i+1}}</td> -->
+					<td>{{c.name}}</td>
+					<td>{{c.email}}</td>
+					<td>{{c.correctAns}}</td>
+					<td>{{c.inCorrectAns}}</td>
+					<td>{{c.notAnswered}}</td>
+					<td>{{c.status}}</td>
+					<td>{{c.submissionTime}}</td>
+
+				</tr>
+				
+			</tbody>
+		
+	</table>
+	    <div class="indigo">
+	          <pagination-controls (pageChange)="p = $event"></pagination-controls>
+			</div>
+</div>

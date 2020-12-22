@@ -1,0 +1,51 @@
+<app-header></app-header>
+ <div
+    
+    >
+
+
+
+<div  class="center" style= "height: 100vh; background-image: url('assets/bg.png');" id = "body">
+	
+	<div class="container">
+		<div class = "row">
+			<div class="col s12">
+				<div class="center"> 
+				<img  style=" opacity:!important 0.6;" *ngIf = "loadgif" src="assets/loadd.gif">
+				</div>
+				<ul>
+					<div>
+					<!-- 	  <a  *ngIf = "!initsearch" (click) = "searchinit()" class="btn-floating btn waves-effect waves-light indigo"><i class="material-icons">search</i></a>
+ 							  <i class="material-icons prefix">account_circle</i> -->
+					<!-- 	 <input [(ngModel)] = "toSearch" *ngIf = "initsearch" placeholder="Search" name="">
+			 			<button (click) = "search()" *ngIf = "initsearch">Find</button> -->
+					</div>
+			        <div class="card"  *ngFor = "let testEl of tests  | paginate: { itemsPerPage: 3, currentPage: p }; let i = index;" >
+
+			            <span class = "card-title"  style="cursor: pointer;">
+			                {{testEl.name | titlecase}}
+			            </span>
+			             <div style="width: 100% !important;" class="card-action">
+					          <a [routerLink]="[p == 1 ? i : (p*3)-3+i ,'start']" class="btn pink">Take Test</a>
+                            
+					        </div>
+			        </div>
+		    <div class="indigo">
+	          <pagination-controls (pageChange)="p = $event"></pagination-controls>
+			</div>
+				</ul>	
+			</div>
+
+			<!-- <div class="push m4 col m6">
+				<img src="assets/test.png" class="responsive-img">
+			</div>
+			 -->
+
+
+		</div>
+	</div>
+
+</div>
+</div>
+<!-- 
+<i class="fas fa-edit"></i> -->

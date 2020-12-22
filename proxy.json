@@ -1,0 +1,6 @@
+{
+  "/test-c5234.firebaseio.com": {
+    "target": "http://localhost:3000",
+    "secure": false
+  }
+}

@@ -1,0 +1,137 @@
+<!-- Timer mode:
+<countdown-timer [start]="start_date"></countdown-timer>
+  -->
+  <div class="center">
+      Time Left:
+      <countdown-timer (zeroTrigger) = "triggerFunction()" [end]="end_date"></countdown-timer>
+    
+  </div>
+
+
+
+<div style="height: 100vh !important; background-color: black;">
+
+<ng-template *ngIf="welcome">
+    <div class="container">
+      <p class="white-text">  Welcome!</p>
+    </div>
+</ng-template>
+
+
+<div>
+
+
+  
+  
+<div>
+    <div *ngIf = "windowsChanged <= 3">
+      
+      <div class="row">
+           <!--  <div class="col s5 m3">
+                <ul class="collection">
+                    <a  [routerLink] = "[]" [queryParams] = "{questionId : p == 1 ? i : (p*3)-3+i }"   routerLinkActive= "nav-active" style="border: antiquewhite solid 1px;; height: 60px; cursor: pointer; " class="collection-item " *ngFor = "let question of test.questions | paginate: { itemsPerPage: 5, currentPage: p }; let i = index;">
+                       <span  style="margin: auto; text-align: center; color:black; font-size: large;">{{(p*3)-3+i+1 }}</span>
+            
+                    </a>
+                   <div class="indigo">
+              <pagination-controls (pageChange)="p = $event"></pagination-controls>
+            </div>
+                </ul>
+            
+            </div> -->
+
+
+        <div   class="col s12">
+            <!-- <div class="container"> -->
+
+                   <app-display-question  [selectedQuestion] = "questionSelected"></app-display-question>
+
+                   <div class="container">
+                        <div class="row">
+                      <div  class="col s2">
+                        <div>
+                          <a class="btn-floating btn-small indigo"  [routerLink] = "[]" [queryParams] = "{questionId : back()}"><i class="large material-icons">navigate_before</i></a>
+                          
+                        </div>
+
+                     
+
+
+                  </div>
+   <div class="col s2">
+                          
+                      <a  [class.dis] = "disableNext" class="btn-floating btn-small indigo" [routerLink] = "[]" [queryParams] = "{questionId : next()}"><i class="large material-icons">navigate_next</i></a>
+                        </div>
+                   </div>
+
+                   
+
+  </div>
+              
+            <!-- </div> -->
+        </div>
+
+      <!--   <div class="col s3">
+            <img class="responsive-img" src="assets/mam.png">
+        </div>
+         -->
+
+
+
+
+
+    </div>
+
+
+
+    <button style="position: absolute;
+    bottom: 0;
+    right: 0;"
+     class="btn waves-effect waves-light"  (click) = "submitTest()">submit<i class="material-icons right">send</i></button>
+    </div>
+
+<!-- <div *ngIf = "windowsChanged > 3">
+  <app-sorry></app-sorry>
+</div> -->
+</div>
+
+</div>
+
+
+</div>
+
+
+
+<!--MOBILE -->
+<!-- <div style= "background-color: black; height: 100vh;" class="show-on-small hide-on-med-and-up">
+    <div class=" container">
+      <div class="row">
+          <div class="col s12">
+              <app-display-question [selectedQuestion] = "questionSelected"></app-display-question>
+    
+          </div>
+      </div>
+    
+      <div class="row">
+           <ul style="display: inline;">
+                    <a class="btn" [routerLink] = "[]" [queryParams] = "{questionId : i}"   routerLinkActive= "nav-active" style="border: antiquewhite solid 1px;; height: 60px; cursor: pointer; " class="collection-item " *ngFor = "let question of test.questions ; let i = index;">
+                       <span class="btn btn-small indigo" style="margin: auto; text-align: center; color:black; font-size: small;">{{ i+1 }}</span>
+            
+                    </a>
+                    <br> -->
+              <!--      <div class="indigo">
+              <pagination-controls (pageChange)="p = $event"></pagination-controls>
+            </div> -->
+    <!--             </ul>
+      </div>
+
+
+    </div>
+    
+    </div>
+    <div class="row show-on-small hide-on-med-and-up">
+      <div col s12>
+        <button style="width: 100%;" 
+     class=" btn waves-effect waves-light pink"  (click) = "submitTest()">submit<i class="material-icons right">send</i></button>
+      </div>
+</div> -->

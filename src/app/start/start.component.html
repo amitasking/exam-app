@@ -1,0 +1,41 @@
+<app-header></app-header>
+
+
+ 
+<div class = "container">
+	<form (ngSubmit) = "start(form)" #form = "ngForm">
+		<div class="input-field ">
+			<i  class="material-icons prefix">account_circle</i>
+
+		<!-- 	<label for="name">name</label> -->
+			<input #name = "ngModel" required placeholder  ="name" ngModel type="text" name="name" class="validate">	
+			  <span *ngIf = "name.touched && name.invalid" class="helper-text red-text" >This field cannot be empty!</span>
+			  <span *ngIf = "!name.invalid" class="helper-text green-text" >Beautiful name!</span>
+     	
+		</div>
+		  
+
+		<div class="input-field ">
+			<i class="material-icons prefix">contact_mail</i>
+		<!-- 	<label for="email">contact_mail</label> -->
+			<input email #email = "ngModel" type="email" required ngModel type="email" name="email" class="validate">		
+			  <span *ngIf = "email.touched && email.invalid" class="helper-text red-text" >Please enter a valid email</span>
+			  <span *ngIf = "!email.invalid" class="helper-text green-text" >Yeah! thats a great email</span>
+     
+		</div>
+			
+       <!--  <span  ></span> -->
+
+		<div class="input-field ">
+			<i class="material-icons prefix">security</i>
+			<!-- <label for="name">Password</label> -->
+			<input #pass = "ngModel" required ngModel type="password" name="password" class="validate">		
+			   <span *ngIf = "pass.touched && pass.invalid" class="helper-text red-text" >This field cannot be empty!</span>
+		
+
+		</div>
+		
+		<button [disabled]="form.invalid" class="btn" type="submit">Start Test</button>
+
+	</form>
+</div>

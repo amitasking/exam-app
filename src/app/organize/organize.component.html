@@ -1,0 +1,168 @@
+<app-header></app-header>
+<div class="md-stepper-horizontal indigo">
+   <div [class.active] = "!stepper" class="md-step">
+      
+      	<div class="md-step-circle"><span>1</span></div>
+	      <div class="md-step-title">Basic Info</div>
+	      <div class="md-step-bar-left"></div>
+	      <div class="md-step-bar-right"></div>
+      
+    </div>
+   
+    <div [class.active] = "stepper" class="md-step">
+      <div class="md-step-circle"><span>2</span></div>
+      <div class="md-step-title">Questions</div>
+      <div class="md-step-bar-left"></div>
+      <div class="md-step-bar-right"></div>
+    </div>
+  </div>
+
+
+
+
+<div class="container">
+
+	<div style="margin-top: 2em;" class="row">
+		
+	<div  *ngIf = "stepper == false">
+				        	 
+		 <div class="input-field col s6">
+			          	
+			        	<label class="active" for="name">Enter Name of test</label>
+			        	<input #name required type="text" class="validate" name="name">
+			        
+     	
+		</div>
+
+
+		 <div class="input-field col s6">
+			          	
+			        	<label class="active" for="username">Admin email</label>
+			        	<input required email   #username type="email" class="validate" name="username">
+			        		 
+     	
+		</div>
+
+		 <div class="input-field col s6">
+			          	
+			        	<label class="active" for="name">Admin Password</label>
+			        	<input #password type="text" class="validate" name="Password">
+		</div>
+
+<div class="input-field col s6">
+			          	
+			        	<label class="active" for="name">Time (in minutes)</label>
+			        	<input #time required type="text" class="validate" name="name">
+			        
+     	
+		</div>
+
+		 <div class="input-field col s6">
+			          	
+			        	<label class="active" for="PPassword">Public Password</label>
+
+			        	<input #PP type="text" class="validate" name="PPassword">
+						 <span class="helper-text">Candidates required this password to acess test</span>
+		</div>
+			        	 <div class="input-field col s6">
+			          		<label class="active" for="number">Enter Number Of questions</label>
+			        	
+			          		<input #number type="number" name="number" class="validate">
+			          		
+			          	
+			        		<button [disabled]="" class=" pulse btn waves-effect waves-light indigo" (click) = "numberOfQuest(number,name,username,password,PP,time)"><i class="material-icons right">send</i>Next</button>
+			        	</div>
+	</div>
+	</div>
+
+
+
+		
+<div class = "row">
+	<div *ngIf = "stepper == true">
+		<form (ngSubmit) = "submit(form)" #form = "ngForm">
+			
+		<div *ngFor = "let i of questions; let in = index;">
+			<h4>Question {{in+1}}</h4>
+		     	 <div class="row">
+		     	 
+
+				<div class="row">
+					 <div class="input-field col s12">
+			       <!--  <label class="active">Name</label> -->
+			       <textarea required placeholder="Question Statement" type="" [(ngModel)] = "i.description" name="i"></textarea>
+          		</div>
+
+				</div>
+          	
+          		 <div class="row">
+		          		 	<div class="input-field col s4">
+					      <!-- <i class="material-icons prefix"><p></p>1</i> -->
+					       <input required placeholder="Option 1" type="" [(ngModel)] = "i.option1" name="i">
+		          			
+		          		</div>
+	           
+						
+		          		
+		          		<div class="input-field col s4">
+					       <!--  <label class="active">Name</label> -->
+					      <input required placeholder="Option 2" type="" [(ngModel)] = "i.option2" name="i">
+		          		</div>
+          		 </div>
+
+
+
+				<div class="row">
+						<div class="input-field col s4">
+				       <!--  <label class="active">Name</label> -->
+				       <input required placeholder="Option 3" type="" [(ngModel)] = "i.option3" name="i">
+	          		</div>
+
+	          		<div class="input-field col s4">
+				       <!--  <label class="active">Name</label> -->
+				       <input required placeholder="Option 4" type="" [(ngModel)] = "i.option4" name="i">
+	          		</div>
+
+				</div>
+          		
+
+
+		<div class="row">
+					<div class="input-field col s4">
+				       <!--  <label class="active">Name</label> -->
+				       <input required placeholder="Correct Option" type="number" [(ngModel)] = "i.ans" name="i">
+	          		</div>
+
+		 <div class="input-field col s4">
+				       <!--  <label class="active">Name</label> -->
+				       	<input required placeholder="marks" type="number" [(ngModel)] = "i.marks" name="i">
+	          		</div>
+          	
+		</div>
+          	
+          		
+		     	 </div>
+			
+			
+		
+			
+			
+			
+			
+			
+			<br>
+		</div>
+		
+
+
+			<button class=" pulse btn waves-effect waves-light indigo"  type="submit">Create Test</button>
+		</form>
+	</div>
+
+</div>
+
+
+
+
+		<!-- end -->
+</div>

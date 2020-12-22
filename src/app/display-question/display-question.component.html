@@ -1,0 +1,94 @@
+<div >
+  <div class="container">
+  <div style="margin-left: 20px; margin-top: 2em;">
+  <ng-template *ngIf = "!selectedQuestion">
+    select question
+</ng-template>
+<div *ngIf = "selectedQuestion">
+
+<!-- <h4  class="center" >{{selectedQuestion.name}}</h4> -->
+  <div class="row">
+      <p  style="font: bold; font-weight: 550px; font-size: small; color: white">{{questionId+1}}.  {{selectedQuestion.description}}</p>
+  </div>
+
+
+<div class="row">
+  <form (ngSubmit) = "selectAnswer(form)" #form ="ngForm" >
+    <div>
+      <div class = "row">
+          <label>
+            <input name="answer"
+            type="radio"
+            [value]="0" 
+            checked 
+            ngModel/>
+            <span>{{selectedQuestion.option1}}</span>
+                         <i *ngIf ="candidateService.getAnsById(questionId) == 0" class="material-icons">check</i>
+   
+          </label>
+     
+
+      </div>
+
+      <div class="row">
+          <label>
+            <input name="answer"
+            type="radio"
+            [value]="1" 
+             
+            ngModel/>
+            <span>{{selectedQuestion.option2}}</span>
+                        <i *ngIf ="candidateService.getAnsById(questionId) == 1" class="material-icons">check</i>
+   
+    
+          </label>
+        </div>
+
+      <div class="row">
+         <label>
+            <input name="answer"
+            type="radio"
+            [value]="2" 
+             
+            ngModel/>
+            <span>{{selectedQuestion.option3}}</span>
+              <i *ngIf ="candidateService.getAnsById(questionId) == 2" class="material-icons">check</i>
+          </label>
+      </div>
+
+
+      <div class="row">
+         <label>
+            <input name="answer"
+            type="radio"
+            [value]="3" 
+            
+            ngModel/>
+            <span>{{selectedQuestion.option4}}</span>
+                          <i *ngIf ="candidateService.getAnsById(questionId) == 3" class="material-icons">check</i>
+   
+          </label>
+    
+      </div>
+        
+ 
+
+         
+    </div>
+    <br>
+    <button class="btn pink" type="submit">Submit</button>
+</form>
+
+</div>
+
+
+
+
+</div>
+
+
+
+
+</div>
+</div>
+</div>
